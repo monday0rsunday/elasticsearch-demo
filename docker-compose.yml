@@ -1,0 +1,15 @@
+version: '2'
+services:
+  elasticsearch:
+    build:
+      context: ./elasticsearch
+    ports:
+      - 9201:9200
+      - 9301:9300
+  kibana:
+    build:
+      context: ./kibana
+    ports:
+      - 5602:5601
+    links:
+      - elasticsearch:elasticsearch
